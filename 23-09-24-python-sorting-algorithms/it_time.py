@@ -14,3 +14,4 @@ def run_algorithm(source,func,data):
 if __name__ == '__main__':
     array = list(range(50,0,-1))
     run_algorithm(source='bubbles',func='bubble_sort',data=array.copy())
+    run_algorithm(source='quicks',func='quick_sort',data=array.copy())
