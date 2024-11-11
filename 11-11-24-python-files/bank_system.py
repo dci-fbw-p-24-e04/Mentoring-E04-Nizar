@@ -81,18 +81,19 @@ def get_total_amount(clients):
 
 
 def transfer_money(clients,from_client,to_client,amount):
-    pass
+    client_send = get_client(clients,from_client)
+    client_receive = get_client(clients,to_client)
+    if client_send and client_receive:
+        if amount < client_send['balance']:
+            client_send['balance']-=amount
+            print(f'The amount of {amount} will be deducted from Client {from_client}\nThe new balance is {client_send["balance"]}')
+            client_receive['balance'] += amount
+            print(f"The amount of {amount} was added to Client {client_receive['client_id']} account\nThe new balance is {client_receive['balance']}")
+        else :
+            print('Not enough money to send ')
+                
+        save_clients(clients)
+    else:
+        print(cs("Transfer declined","red"))
 
-clients = load_clients()
-#add_client(clients,'Nizar','01/01/2000',1000)
-#add_client(clients,'Lisa','01/01/2000',100000000)
-# # add_client(clients,'Diego','01/01/2000',100000000)
-# client_1 = get_client(clients,1)
-# print(client_1)
-#update_client(clients,2,client_balance=5200000)
-#update_client(clients,3,client_name="Juan Diego",client_dob="02/02/2002")
-#remove_client_1(clients,2)
-#display_client(clients,3)
-clients_overview(clients)
-print(get_total_amount(clients))
 
