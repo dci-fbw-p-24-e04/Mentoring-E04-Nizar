@@ -1,0 +1,21 @@
+[
+    {
+        "date": "2024-10-10",
+        "total_calories": 540,
+        "total_duration": 60,
+        "exercises": [
+            {
+                "name": "Push-ups",
+                "duration": 30,
+                "difficulty": "medium",
+                "calories": 240
+            },
+            {
+                "name": "Squats",
+                "duration": 30,
+                "difficulty": "hard",
+                "calories": 360
+            }
+        ]
+    }
+]
