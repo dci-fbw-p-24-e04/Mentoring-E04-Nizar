@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView,CreateView,FormView
+from django.views.generic import TemplateView,CreateView,FormView,RedirectView
 from .form import UserResgtrationForm
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
@@ -30,3 +30,10 @@ class UserLoginView(FormView):
         else:
             return self.form_invalid(form)  # Treat as invalid if empty data is present
         return super().form_valid(form)
+    
+
+class UserLogoutView(RedirectView):
+    url = reverse_lazy("home")
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return super().get(request, *args, **kwargs)

@@ -10,10 +10,16 @@
         <ul>
             <li><a href="{%url 'home'%}">Home</a></li>
             <li><a href="{%url 'about'%}">About</a></li>
+            {%if request.user.is_autheticated %}
+            <li><a href="{%url 'logout'%}">Logout</a></li>
+            {% else %}
             <li><a href="{%url 'register'%}">sign-up</a></li>
             <li><a href="{%url 'login'%}">Login</a></li>
+            {%endif%}
+           
         </ul>
     </nav>
+    <h1>{{request.user}}</h1>
     <h1>THis about Page</h1>
     <p>The page is about something</p>
 </body>
